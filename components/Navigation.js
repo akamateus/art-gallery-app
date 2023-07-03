@@ -1,4 +1,3 @@
-
 import { useRouter } from "next/router";
 import Link from "next/link";
 import styled from "styled-components";
@@ -37,7 +36,9 @@ export default function Navigation() {
         </li>
         <li>
           <Link href="/art-pieces">
-            <NavLink active={router.pathname === "/art-pieces"}>Art Pieces</NavLink>
+            <NavLink active={router.pathname === "/art-pieces/index.js"}>
+              Art Pieces
+            </NavLink>
           </Link>
         </li>
       </List>

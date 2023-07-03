@@ -9,6 +9,7 @@ const ArtPieces = ({ pieces }) => {
           image={piece.imageSource}
           title={piece.name}
           artist={piece.artist}
+          slug={piece.slug}
         />
       ))}
     </ul>
