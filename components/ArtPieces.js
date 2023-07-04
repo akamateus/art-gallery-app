@@ -2,7 +2,7 @@ import ArtPiecePreview from "./ArtPiecePreview";
 
 const ArtPieces = ({ pieces }) => {
   return (
-    <div>
+    <ul>
       {pieces.map((piece) => (
         <ArtPiecePreview
           key={piece.slug}
@@ -11,7 +11,7 @@ const ArtPieces = ({ pieces }) => {
           artist={piece.artist}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 
