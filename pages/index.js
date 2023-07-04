@@ -4,7 +4,7 @@ import React from "react";
 import Spotlight from "../components/SpotLight";
 
 
-export default function HomePage({ pieces }) {
+export default function SpotLightPage({ pieces }) {
 
 
   const spotlightPiece = pieces ? pieces[Math.floor(Math.random() * pieces.length)] : null;
@@ -16,7 +16,7 @@ export default function HomePage({ pieces }) {
 
 
 
-  console.log(pieces);
+
   return (
     <div>
       <h1>Art Gallery</h1>

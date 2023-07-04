@@ -38,8 +38,6 @@ const ExampleData = [
     ];
     
     
-
-    
     
 test("renders a list of art pieces", () => {
   render(<ArtPieces pieces={ExampleData} />);
