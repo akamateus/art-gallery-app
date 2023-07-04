@@ -39,6 +39,7 @@ const ArtPieces = ({ pieces }) => {
           slug={piece.slug}
           isFavorite={artPiecesInfo.includes(piece.slug)}
           onToggleFavorite={() => toggleFavorite(piece.slug)}
+          artPieces={artPiecesInfo}
         />
       ))}
     </List>
