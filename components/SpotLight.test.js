@@ -7,10 +7,9 @@ test("renders the wrapper div and artist correctly", () => {
 
   const { getByText } = render(<Spotlight artist={artist} />);
 
-
-// parentNode property is used to retrieve
-// the parent element of the element
-//  containing the artist's name
+  // parentNode property is used to retrieve
+  // the parent element of the element
+  //  containing the artist's name
 
   const wrapperElement = getByText(artist).parentNode;
   const artistElement = getByText(artist);

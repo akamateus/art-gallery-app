@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import FavoriteButton from "./FavouriteButton";
+import FavoriteButton from "./FavoriteButton";
 const Container = styled.div`
   position: relative;
 `;
