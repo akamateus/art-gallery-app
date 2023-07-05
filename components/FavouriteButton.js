@@ -9,8 +9,8 @@ const Button = styled.button`
   border-radius: 10%;
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   padding: 0.3rem 0 0;
 `;
 
@@ -24,10 +24,10 @@ export default function FavoriteButton({
       type="button"
       onClick={onToggleFavorite}
       isFavorite={isFavorite}
-      aria-label={isFavorite ? "not-Favourite" : "favourite"}
+      aria-label={isFavorite ? "isFavorite" : "Favorite"}
 
     >
-      <Image src="/assets/heart.svg" width={30} height={30} alt="" />
+      <Image src="/assets/heart.svg" width={25} height={25} alt="" />
     </Button>
   );
 }

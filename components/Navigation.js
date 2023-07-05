@@ -13,7 +13,7 @@ const List = styled.ul`
   align-items: center;
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   text-decoration: none;
   padding: 0 0.3rem;
   color: ${({ active }) => (active ? "var(--primary-color)" : "black")};
@@ -26,20 +26,31 @@ const NavLink = styled.a`
 export default function Navigation() {
   const router = useRouter();
 
+  console.log(router)
+
   return (
     <nav>
       <List role="list">
         <li>
-          <Link href="/">
-            <NavLink active={router.pathname === "/"}>Spotlight</NavLink>
-          </Link>
+          <NavLink href="/" active={router.pathname === "/" ? "active" : ""}>
+            Spotlight
+          </NavLink>
         </li>
         <li>
-          <Link href="/art-pieces">
-            <NavLink active={router.pathname === "/art-pieces/index.js"}>
-              Art Pieces
-            </NavLink>
-          </Link>
+          <NavLink
+            href="/art-pieces"
+            active={router.pathname === "/art-pieces" ? "active" : ""}
+          >
+            Art Pieces
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            href="/favorites"
+            active={router.pathname === "/favorites" ? "active" : ""}
+          >
+            Favorites
+          </NavLink>
         </li>
       </List>
     </nav>

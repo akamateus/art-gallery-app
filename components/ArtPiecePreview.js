@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import FavoriteButton from "./FavouriteButton";
+
 const Container = styled.div`
   position: relative;
 `;
@@ -32,12 +33,14 @@ const ArtPiecePreview = ({
           <FavoriteButton
             isFavorite={isFavorite}
             onToggleFavorite={onToggleFavorite}
+            positionAbsolute={true}
           />
         </ButtonContainer>
       </ImageContainer>
       <h3>{title}</h3>
       <p>{artist}</p>
       <Link href={`/art-pieces/${slug}`}>More info 🎨</Link>
+      
     </Container>
   );
 };

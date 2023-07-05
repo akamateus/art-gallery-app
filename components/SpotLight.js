@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
-
+import FavoriteButton from "./FavouriteButton";
 
 export const StyledImage = styled(Image)`
   object-fit: cover;
@@ -18,15 +18,30 @@ const Wrapper = styled.div`
   place-items: center;
 `;
 
+const ButtonContainer = styled.div`
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index:9;
+`;
+
+
 export default function Spotlight({
   image,
   artist,
-
+  isFavorite,
+  onToggleFavorite,
+ 
 }) {
   return (
     <Wrapper>
       <ImageContainer>
-     
+      <ButtonContainer>
+          <FavoriteButton
+    isFavorite={isFavorite}
+    onToggleFavorite={onToggleFavorite}
+          />
+        </ButtonContainer>
       <StyledImage
           src={image}
           fill

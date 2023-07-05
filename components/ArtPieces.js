@@ -1,7 +1,6 @@
-import React, { useState } from "react";
 import ArtPiecePreview from "./ArtPiecePreview";
-import styled
- from "styled-components";
+import styled from "styled-components";
+
 const List = styled.ul`
   list-style: none;
   padding-left: 0;
@@ -18,34 +17,24 @@ const List = styled.ul`
   }
 `;
 
-
-
-const ArtPieces = ({ pieces }) => {
-  const [favorites, setFavorites] = useState([]);
-
-  const toggleFavorite = (slug) => {
-    if (favorites.includes(slug)) {
-      setFavorites(favorites.filter((favorite) => favorite !== slug));
-    } else {
-      setFavorites([...favorites, slug]);
-    }
-  };
-
+export default function ArtPieces({ pieces, artPiecesInfo, onToggleFavorite }) {
   return (
     <List>
-      {pieces.map((piece) => (
-        <ArtPiecePreview
-          key={piece.slug}
-          image={piece.imageSource}
-          title={piece.name}
-          artist={piece.artist}
-          slug={piece.slug}
-          isFavorite={favorites.includes(piece.slug)}
-          onToggleFavorite={() => toggleFavorite(piece.slug)}
-        />
+      {pieces?.map((piece) => (
+        <li key={piece.slug}>
+          <ArtPiecePreview
+            title={piece.name}
+            image={piece.imageSource}
+            artist={piece.artist}
+            slug={piece.slug}
+            isFavorite={
+              artPiecesInfo?.find((artPiece) => artPiece.slug === piece.slug)
+                ?.isFavorite
+            }
+            onToggleFavorite={() => onToggleFavorite(piece.slug)}
+          />
+        </li>
       ))}
-     </List>
+    </List>
   );
-};
-
-export default ArtPieces;
+}

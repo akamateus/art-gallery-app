@@ -1,7 +1,7 @@
+import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "../components/Layout.js";
-import GlobalStyle from "../styles";
-
+import { useImmerLocalStorageState } from "../lib/hook/useImmerLocalStorageState.js";
 
 const fetcher = async (url) => {
   try {
@@ -9,11 +9,10 @@ const fetcher = async (url) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
     throw error;
   }
 };
-
 
 export default function App({ Component, pageProps }) {
   const { data, isLoading, error } = useSWR(
@@ -21,22 +20,39 @@ export default function App({ Component, pageProps }) {
     fetcher
   );
 
- 
+  
+  const [artPiecesInfo, setArtPiecesInfo] = useImmerLocalStorageState(
+    "art-pieces-info",
+    { defaultValue: [] }
+  );
 
-  if (isLoading || error) {
-    return <div>Loading...</div>; // or display an error message
+  function toggleFavorite(slug) {
+    const artPiece = artPiecesInfo.find((piece) => piece.slug === slug);
+    if (artPiece) {
+      setArtPiecesInfo(
+        artPiecesInfo.map((pieceInfo) =>
+          pieceInfo.slug === slug
+            ? { slug, isFavorite: !pieceInfo.isFavorite }
+            : pieceInfo
+        )
+      );
+    } else {
+      setArtPiecesInfo([...artPiecesInfo, { slug, isFavorite: true }]);
+    }
   }
 
 
-  console.log(data);
+
   return (
     <Layout>
- <GlobalStyle />
+      <GlobalStyle />
       <Component
         {...pageProps}
-        pieces={data}
+        pieces={isLoading || error ? [] : data}
+        artPiecesInfo={artPiecesInfo}
+        onToggleFavorite={toggleFavorite}
+      
       />
     </Layout>
   );
 }
-
