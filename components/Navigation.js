@@ -41,6 +41,13 @@ export default function Navigation() {
             </NavLink>
           </Link>
         </li>
+        <li>
+          <Link href="/favorites">
+            <NavLink active={router.pathname === "/favorites/index.js"}>
+              Favorites
+            </NavLink>
+          </Link>
+        </li>
       </List>
     </nav>
   );
