@@ -14,8 +14,7 @@ export default function FavoritesPage({
 
   return (
     <ArtPieces
-      pieces={favorites}
-
+      pieces={favourite}
       artPiecesInfo={artPiecesInfo}
       onToggleFavorite={onToggleFavorite}
     />

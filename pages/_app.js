@@ -65,7 +65,7 @@ export default function App({ Component, pageProps }) {
   }
 
 
-  
+
 
   return (
     <Layout>
@@ -74,6 +74,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         pieces={isLoading || error ? [] : data}
         artPiecesInfo={artPiecesInfo}
+        addComment ={addComment}
         onToggleFavorite={toggleFavorite}
       
       />

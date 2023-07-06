@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 
 
 
@@ -8,8 +6,8 @@ export default function Comments({ comments }) {
     <section>
       <h3>Comments</h3>
       <li role="list">
-        {comments.map((comment, index) => (
-          <li key={index}>
+        {comments.map((comment, slug) => (
+          <li key={slug}>
             <p>
               <q>{comment}</q>
             </p>

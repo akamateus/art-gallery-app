@@ -4,6 +4,7 @@ import Head from "next/head";
 import Navigation from "./Navigation";
 const Wrapper = styled.div`
   height: 100vh;
+  background-color: lightgrey;
   display: grid;
   grid-template-rows: 5rem auto 4rem;
 `;

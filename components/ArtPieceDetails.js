@@ -24,7 +24,7 @@ const Wrapper = styled.section`
 `;
 
 const ArtPieceDetails = ({ image, title, artist, year, genre, comments, addComment }) => {
-  const router = useRouter();
+
 
   return (
     <Wrapper>

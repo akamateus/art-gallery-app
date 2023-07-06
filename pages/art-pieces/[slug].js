@@ -21,6 +21,7 @@ function ArtPieceDetailsPage({ pieces }) {
       artist={piece.artist}
       year={piece.year}
       genre={piece.genre}
+   
     />
   );
 }
