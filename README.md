@@ -1,6 +1,3 @@
-# New Project
-
-This project was created from the neue fische next template.
 
 ## Link for the handout - Project 5
 
